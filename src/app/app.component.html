@@ -1,0 +1,121 @@
+  <nav class="navbar orange fixed-top ">
+    <div class="row col-12">
+        <div class="col-12 col-lg-3 col-xl-3 d-flex align-items-center">
+          <button type="button" class="navbar-toggler d-lg-none d-xl-none" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <img src="assets/hamburger.gif" alt="Menu" class="hamburger">
+          </button>
+            <a href="#" class="navbar-brand" class="logo">
+              <img src="assets/logo_new.jpg" alt="casadoempreendedordegoias" class="logo">
+            </a>
+        </div>
+        <div class="col col-lg-9 col-xl-9 barra d-flex align-items-center justify-content-end">
+          <ul class="list-unstyled d-none d-lg-flex d-xl-flex">
+            <li class="nav-item">
+                <a routerLink="/casa" data-toggle="collapse" href="#collapseMenu" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/home" data-toggle="collapse" href="#collapseMenu" class="nav-link active">Shopping</a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#collapseMenu" class="nav-link">Cursos</a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#collapseMenu" class="nav-link">Consultorias</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="collapse" href="#collapseMenu" class="nav-link">Empréstimos</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+  <div class="collapse menu d-lg-none d-xl-none bg-light" id="collapseMenu">
+    <ul class="list-unstyled">
+      <li class="nav-item">
+          <a data-toggle="collapse" href="#collapseMenu" (click)="home()" class="nav-link">HOME</a>
+      </li>
+      <li class="nav-item">
+          <a data-toggle="collapse" href="#collapseMenu" (click)="shopping()" class="nav-link">SHOPPING</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="collapse" href="#collapseMenu" class="nav-link">CURSOS</a>
+      </li>
+      <li class="nav-item">
+          <a data-toggle="collapse" href="#collapseMenu" class="nav-link">CONSULTORIAS</a>
+      </li>
+      <li class="nav-item">
+          <a data-toggle="collapse" href="#collapseMenu" class="nav-link">EMPRÉSTIMOS</a>
+      </li>
+    </ul>
+  </div>
+  <div style="margin-top: 91px;">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="contato">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div id="rede">Nossas Redes Sociais</div>
+          <a href="https://www.facebook.com/cempreen.dedor.33/" target="_blank"><i class="fab fa-facebook" style="font-size: 30pt; color:#FF8C00;"></i></a>
+          <a href="https://www.facebook.com/casadoempreendedorgo" target="_blank"><i class="fab fa-facebook" style="font-size: 30pt; color:#FF8C00; margin-left: 10px;"></i></a>
+          <a href="https://www.instagram.com/empreendedor_go/" target="_blank"><i class="fab fa-instagram" style="font-size: 30pt; color:#FF8C00; margin-left: 10px;"></i></a>
+        </div>
+        <div class="col-12 col-md-6">
+          <div id="contatos">Contatos</div>
+          <div>
+            Fones:
+          </div>
+          <div class="mb-2">
+            <a href="tel:+6236099481" style="font-size: 15pt; color:#FF8C00;"><i class="fas fa-phone-alt"></i> (62) 3609-9481</a>
+          </div>
+          <div class="d-flex align-items-center">
+            <a href="https://wa.me/556236099481" style="margin-left: 7px; font-size: 15pt; color:#FF8C00;"><i class="fab fa-whatsapp" style="font-size: 15pt;  margin-left: 1px;"></i> (62) 3609-9481 </a>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+          <div class="text-center mb-3">
+            <div style="font-size: 20pt; font-weight: bold;">Envie uma mensagem para nós</div>
+          </div>
+          <form [formGroup]="contatoForm">
+            <div class="form-row mt-2">
+              <div class="form-group col-12 col-md-3">
+                <input class="form-control" type="text" placeholder="Nome" formControlName="nome">
+              </div>
+              <div class="form-group col-12 col-md-3">
+                <input class="form-control" type="text" placeholder="Telefone" formControlName="telefone">
+              </div>
+              <div class="form-group col-12 col-md-3">
+                <input class="form-control" type="text" placeholder="Email" formControlName="email">
+              </div>
+              <div class="form-group col-12 col-md-3">
+                <input class="form-control" type="text" placeholder="Mensagem" formControlName="mensagem">
+              </div>
+            </div>
+            <button type="button" class="btn btn-success btn-block" (click)="enviar()">
+              <i class="fas fa-paper-plane"></i>&nbsp;Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="endereco" class="mt-5">
+        <div class="text-center">
+          CASA DO EMPREENDEDOR DE GOIÁS
+        </div>
+        <div class="text-center mb-3">
+          Rua 1015, Quadra 42 Lote 9. 369 - St. Pedro Ludovico, Goiânia - GO, 74820-285
+      </div>
+      </div>
+    </div>
+  </div>
+  <footer class="py-3 bg-light fixed-bottom">
+        <div class="small text-center text-muted bg-light">
+          Desenvolvido com <i style="color: red;" class="fas fa-heart"></i> por:&nbsp;<span style="color: red; font-weight: bold;">KEN</span><span style="color:black; font-weight: bold;">TEC&nbsp;</span>
+          <span style="font-weight: bold; color: #000;">
+            <script>
+              document.write(new Date().getFullYear());
+           </script>
+          </span>
+        </div>
+  </footer>
+
+

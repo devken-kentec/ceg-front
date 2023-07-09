@@ -1,0 +1,114 @@
+<div class="col-12">
+  <nav>
+    <ol class="breadcrumb bg-white">
+      <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
+      <li class="breadcrumb-item"><a routerLink="/cartao">Listagem</a></li>
+      <li class="breadcrumb-item active">Cartões</li>
+    </ol>
+  </nav>
+  <form class="needs-validation" novalidate [formGroup]="cartaoForm">
+    <div *ngIf="btnGerarCodigo" class="alert alert-warning" role="alert">
+      O Código abaixo já esta sendo usado em um Cartão de Desconto. (Clique em Gerar um novo Código!)
+    </div>
+    <div class="card">
+      <div class="card-header bg-dark" style="color: white; font-size: 14pt; font-weight: bold;">
+        Gerenciamento dos cartões
+      </div>
+      <div class="card-body">
+        <nav class="col-md-12">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Configuração</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="form-row col-md-12 mt-3">
+              <div class="form-group col-md-2">
+                <label for="id">Identificador:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  formControlName="id"
+                  readonly/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="codigo">Código:</label>
+                <input
+                  type="number"
+                  class="form-control text-center"
+                  id="codigo"
+                  formControlName="codigo"
+                  />
+              </div>
+              <div class="form-group col-md-3">
+                <label for="validade">Validade:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="validade"
+                  formControlName="validade"/>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="statusCartao">Status do Cartão:</label>
+                <select id="statusCartao" class="form-control" formControlName="statusCartao">
+                  <option value="">Selecione</option>
+                  <option>Ativo</option>
+                  <option>Inativo</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-8">
+                <label for="usuarioId">Parceiro(a):</label>
+                <select class="form-control" id="usuarioId" formControlName="usuarioId">
+                    <option value="" selected>Nenhum(a)</option>
+                    <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{ usuario.nome }} - {{ usuario.empresa }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>{{ cartaoForm.value | json }}</div>
+  </form>
+  <div class="float-right mt-3">
+    <button  *ngIf="btnGerarCodigo" type="button" (click)="btnGerarNovoCodigo()" class="btn btn-warning">
+      <i class="fas fa-save"></i> &nbsp;Gerar novo código
+    </button>
+    <button  type="submit"  data-toggle="modal" data-target="#ModalSalvar" class="btn btn-success">
+      <i class="fas fa-save"></i> &nbsp;Salvar
+    </button>
+    <button routerLink="/cartao" class="btn btn-info ">
+      <i class="fas fa-backward"></i>&nbsp;Voltar
+    </button>
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalSalvar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="TituloModalCentralizado">
+              Vamos lá!
+            </h5>
+          </div>
+          <div class="modal-body" style="font-weight: bold;">
+            Deseja confirmar a gravação do Cartão: {{ cartaoForm.value.codigo }}?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              <i class="fas fa-window-close"></i>&nbsp;Cancelar
+            </button>
+            <button class="btn btn-success" (click)="onSubmit()"  data-dismiss="modal" >
+              <i class="fas fa-save"></i> &nbsp;Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Fim da modal-->
+</div>
+
+
+

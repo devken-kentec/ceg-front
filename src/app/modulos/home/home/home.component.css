@@ -1,0 +1,140 @@
+img.img-fluid {
+  height: 450px !important;
+  opacity: 0.9 !important;
+}
+
+div.apresentacao {
+  background-color: #F24F00 !important;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+div.apresentacao > ul > li {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+div#lojas {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+div#lojas button {
+  margin-top: 20px;
+  background-color: #FF8C00 !important;
+  border-color: #FF8C00;
+  padding: 10px;
+  box-shadow: 1px 1px 2px #000;
+}
+
+div#lojas button:hover {
+  background-color: #F24F00 !important;
+  border-color: #F24F00;
+}
+
+div#loja {
+  margin-bottom: 25px;
+}
+
+div#lojas h1 {
+  text-transform: uppercase;
+  color: #FF8C00;
+  text-shadow: 1px 1px 1px #000;
+}
+
+div.logo {
+  background-color:#FFE4B5;
+  height: 150px;
+}
+
+img.card-img-top {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  height: 70px !important;
+}
+
+div.card-body > h5.card-title {
+  min-height: 50px !important;
+}
+
+div#carrosel div.carousel-caption {
+  color: #F24F00;
+  text-shadow: 1px 1px 2px #000;
+}
+
+div.carousel-caption p {
+  font-size: 25pt !important;
+}
+
+div#carrosel ol.carousel-indicators > li {
+  background-color: #F24F00;
+}
+
+
+
+#rede {
+  font-size: 22pt;
+  padding-bottom: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+
+form button {
+  background-color: #FF8C00 !important;
+  border-color: #FF8C00;
+  padding: 10px;
+  box-shadow: 1px 1px 2px #000;
+}
+
+form button:hover {
+  background-color: #F24F00 !important;
+  border-color: #F24F00;
+}
+
+button.parc {
+  background-color: #FF8C00 !important;
+  border-color: #FF8C00;
+  padding: 10px;
+  box-shadow: 1px 1px 2px #000;
+}
+
+button.parc:hover {
+  background-color: #F24F00 !important;
+  border-color: #F24F00;
+}
+
+h3.modal-title {
+  color: #FF8C00;
+  text-shadow: 1px 1px 1px #000;
+}
+
+div.modal-body {
+  padding-top: 50px;
+
+}
+
+div.modal-body h2 {
+  color: #FF8C00;
+  text-shadow: 0.5px 0.5px 1px #000;
+}
+
+div.modal-body p {
+  color: #FF8C00;
+  font-size: 16pt;
+  text-shadow: 0.5px 0.5px 1px #000;
+}
+
+.list-inline-item{
+  cursor: pointer;
+}
+
+.list-inline-item > a[type="button"]:hover {
+  text-shadow: 1px 1px 2px #000;
+}
+
+
+
+

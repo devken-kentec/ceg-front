@@ -1,0 +1,96 @@
+<div class="col-12">
+  <nav>
+    <ol class="breadcrumb bg-white">
+      <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
+      <li class="breadcrumb-item"><a routerLink="/desconto">Listagem</a></li>
+      <li class="breadcrumb-item active">Descontos e Milhas</li>
+    </ol>
+  </nav>
+  <form class="needs-validation" novalidate [formGroup]="descontoForm">
+    <div class="card">
+      <div class="card-header bg-dark" style="color: white; font-size: 14pt; font-weight: bold;">
+        Gerenciamento de descontos e milhas
+      </div>
+      <div class="card-body">
+        <nav class="col-md-12">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Configuração</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="form-row col-md-12 mt-3">
+              <div class="form-group col-md-2">
+                <label for="id">Identificador:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  formControlName="id"
+                  readonly/>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="percentual">Percentual:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="percentual"
+                  formControlName="desconto"/>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="milhas">Milhas:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="milhas"
+                  formControlName="milhas"/>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="empresaId">Empresa:</label>
+                <select class="form-control" id="empresaId" formControlName="empresaId">
+                    <option value="" selected>Nenhuma</option>
+                    <option *ngFor="let empresa of empresas" [value]="empresa.id">{{empresa.nomeFantasia}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>{{ descontoForm.value | json }}</div>
+  </form>
+  <div class="float-right mt-3">
+    <button  type="submit" data-toggle="modal" data-target="#ModalSalvar" class="btn btn-success">
+      <i class="fas fa-save"></i> &nbsp;Salvar
+    </button>
+    <button routerLink="/desconto" class="btn btn-info ">
+      <i class="fas fa-backward"></i>&nbsp;Voltar
+    </button>
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalSalvar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="TituloModalCentralizado">
+              Vamos lá!
+            </h5>
+          </div>
+          <div class="modal-body" style="font-weight: bold;">
+            Deseja confirmar a gravação do Usuário: ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              <i class="fas fa-window-close"></i>&nbsp;Cancelar
+            </button>
+            <button class="btn btn-success"  (click)="onSubmit()" data-dismiss="modal" >
+              <i class="fas fa-save"></i> &nbsp;Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Fim da modal-->
+</div>
+
+

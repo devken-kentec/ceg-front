@@ -1,0 +1,323 @@
+<div class="col-12">
+  <nav>
+    <ol class="breadcrumb bg-white">
+      <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
+      <li class="breadcrumb-item"><a routerLink="/usuario">Listagem</a></li>
+      <li class="breadcrumb-item active">Usuários</li>
+    </ol>
+  </nav>
+  <form class="needs-validation" novalidate [formGroup]="usuarioForm">
+    <div class="card">
+      <div class="card-header bg-dark" style="color: white; font-size: 14pt; font-weight: bold;">
+        Cadastro de Usuários
+      </div>
+      <div class="card-body">
+        <nav class="col-md-12">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dados do Usuário</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Endereço</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contatos Digitais</a>
+            <a class="nav-item nav-link" id="nav-finali-tab" data-toggle="tab" href="#nav-finali" role="tab" aria-controls="nav-finali" aria-selected="false">Status é Vínculo</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="form-row col-md-12 mt-3">
+              <div class="form-group col-md-1">
+                <label for="id">Matrícula:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  formControlName="id"
+                  readonly/>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nome">Nome:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome"
+                  formControlName="nome"/>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="login">Login:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="login"
+                  formControlName="login"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="dataDeNascimento">Data de Nasciemento:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="dataDeNascimento"
+                  formControlName="dataDeNascimento"/>
+              </div>
+            </div>
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-3">
+                <label for="cpf">CPF:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cpf"
+                  formControlName="cpf"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" class="form-control" formControlName="sexo">
+                  <option value="">Selecione</option>
+                  <option>Feminino</option>
+                  <option>Masculino</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="estadoCivil">Estado Civil:</label>
+                <select id="estadoCivil" class="form-control" formControlName="estadoCivil">
+                  <option value="">Selecione</option>
+                  <option>Solteiro(a)</option>
+                  <option>Casado(a)</option>
+                  <option>Divorciado(a)</option>
+                  <option>Viúvo(a)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="form-row col-md-12 mt-3">
+              <div class="form-group col-md-2">
+                <label for="cep">CEP:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cep"
+                  (blur)="buscarCep()"
+                  formControlName="cep"/>
+              </div>
+              <div class="form-group col-md-8">
+                <label for="enderco">Endereço:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="endereco"
+                  formControlName="endereco"/>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="numero">Número:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="numero"
+                  formControlName="numero"/>
+              </div>
+            </div>
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-3">
+                <label for="complemento">Complemento:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="complemento"
+                  formControlName="complemento"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="bairro">Bairro:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bairro"
+                  formControlName="bairro"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="municipio">Municipio:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="municipio"
+                  formControlName="municipio"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="estado">Estado:</label>
+                  <select id="estado" class="form-control" formControlName="estado">
+                    <option value="">Selecione</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espirito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="form-row col-md-12 mt-3">
+              <div class="form-group col-md-3">
+                <label for="telefone">Telefone:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telefone"
+                  placeholder="Fixo"
+                  formControlName="telefone"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="telefone2">Telefone 2:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telefone2"
+                  placeholder="Fixo 02"
+                  formControlName="telefone2"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="whatsapp">Whatsapp:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="whatsapp"
+                  placeholder="Whatsapp"
+                  formControlName="whatsapp"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="celular">Celular:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="celular"
+                  placeholder="Celular"
+                  formControlName="celular"/>
+              </div>
+            </div>
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-3">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email"
+                  formControlName="email"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="website">Web Site:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="website"
+                  placeholder="WebSite"
+                  formControlName="website"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="redeSocial">Rede Social:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="redesocial"
+                  placeholder="Facebook"
+                  formControlName="redeSocial"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="redeSocial2">Rede Social 2:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="redeSocial2"
+                  placeholder="Instagran"
+                  formControlName="redeSocial2"/>
+              </div>
+            </div>
+            <div class="form-row col-md-12">
+              <div class="form-group col-md-3">
+                <label for="redeSocial3">Rede Social 3:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="redeSocial3"
+                  placeholder="Linkedin"
+                  formControlName="redeSocial3"/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-finali" role="tabpanel" aria-labelledby="nav-finali-tab">
+            <div class="form-row col-md-12 mt-3">
+              <div class="form-group col-md-4">
+                <label for="statusUsuario">Status Usuário:</label>
+                <select id="statusUsuario" class="form-control" formControlName="statusUsuario">
+                  <option value="">Selecione</option>
+                  <option>Ativo</option>
+                  <option>Inativo</option>
+                </select>
+              </div>
+              <div class="form-group col-md-8">
+                <label for="empresaId">Empresa:</label>
+                <select class="form-control" id="empresaId" formControlName="empresaId">
+                    <option value="" selected>Nenhuma</option>
+                    <option *ngFor="let empresa of empresas" [value]="empresa.id">{{empresa.nomeFantasia}}</option>
+                </select>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="float-right mt-3">
+    <button  type="submit" data-toggle="modal" data-target="#ModalSalvar" class="btn btn-success">
+      <i class="fas fa-save"></i> &nbsp;Salvar
+    </button>
+    <button routerLink="/usuario" class="btn btn-info ">
+      <i class="fas fa-backward"></i>&nbsp;Voltar
+    </button>
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalSalvar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="TituloModalCentralizado">
+              Vamos lá!
+            </h5>
+          </div>
+          <div class="modal-body" style="font-weight: bold;">
+            Deseja confirmar a gravação do Usuário: {{ usuarioForm.value.login }}?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              <i class="fas fa-window-close"></i>&nbsp;Cancelar
+            </button>
+            <button class="btn btn-success"  data-dismiss="modal" (click)="onSubmit()">
+              <i class="fas fa-save"></i> &nbsp;Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Fim da modal-->
+</div>
+
+

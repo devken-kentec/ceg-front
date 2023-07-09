@@ -1,0 +1,377 @@
+<div class="col-12 col-md-12" style="margin-top: 100px;">
+  <div class="container">
+    <nav>
+      <ol class="breadcrumb bg-white">
+        <li class="breadcrumb-item"><a routerLink="/">Início</a></li>
+        <li class="breadcrumb-item"><a routerLink="/empresa">Listagem</a></li>
+        <li class="breadcrumb-item active">Empresa</li>
+      </ol>
+    </nav>
+    <form class="needs-validation" novalidate [formGroup]="empresaForm">
+      <div class="card">
+        <div class="card-header bg-dark" style="color: white; font-size: 14pt; font-weight: bold;">
+          Cadastro de Empresas
+        </div>
+        <div class="card-body">
+          <nav class="col-md-12">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dados Empresariais</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Endereço</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contatos Digitais</a>
+              <a class="nav-item nav-link" id="nav-finali-tab" data-toggle="tab" href="#nav-finali" role="tab" aria-controls="nav-finali" aria-selected="false">Finalização</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <div class="form-row col-md-12 mt-3">
+                <div class="form-group col-md-1">
+                  <label for="id">Matrícula:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="id"
+                    formControlName="id"
+                    readonly/>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="nomeFantasia">Nome Fantasia:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeFantasia"
+                    formControlName="nomeFantasia"/>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="razaoSocial">Razão Social:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="razaoSocial"
+                    formControlName="razaoSocial"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="dataConstituicao">Data da Constrituição:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="dataConstituicao"
+                    formControlName="dataConstituicao"/>
+                </div>
+              </div>
+              <div class="form-row col-md-12">
+                <div class="form-group col-md-3">
+                  <label for="cnpj">CNPJ:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cnpj"
+                    formControlName="cnpj"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inscricaoEstadual">Inscrição Estatual:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inscricaoEstadual"
+                    formControlName="inscricaoEstadual"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inscricaoMunicipal">Inscrição Municipal:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inscricaoMunicipal"
+                    formControlName="inscricaoMunicipal"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="regimeTributario">Regime Tributário:</label>
+                  <select id="regimeTributario" class="form-control" formControlName="regimeTributario">
+                    <option value="">Selecione</option>
+                    <option>MEI</option>
+                    <option>SIMPLES NACIONAL - EIRELI</option>
+                    <option>SIMPLES NACIONAL - EPP</option>
+                    <option>SIMPLES NACIONAL - ME</option>
+                    <option>LUCRO PRESUMIDO</option>
+                    <option>LUCRO REAL</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <div class="form-row col-md-12 mt-3">
+                <div class="form-group col-md-2">
+                  <label for="cep">CEP:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    (blur)="buscarCep()"
+                    formControlName="cep"/>
+                </div>
+                <div class="form-group col-md-8">
+                  <label for="enderco">Endereço:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="endereco"
+                    formControlName="endereco"/>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="numero">Número:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="numero"
+                    formControlName="numero"/>
+                </div>
+              </div>
+              <div class="form-row col-md-12">
+                <div class="form-group col-md-3">
+                  <label for="complemento">Complemento:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="complemento"
+                    formControlName="complemento"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="bairro">Bairro:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="bairro"
+                    formControlName="bairro"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="municipio">Municipio:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="municipio"
+                    formControlName="municipio"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="estado">Estado:</label>
+                    <select id="estado" class="form-control" formControlName="estado">
+                      <option value="">Selecione</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espirito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <div class="form-row col-md-12 mt-3">
+                <div class="form-group col-md-3">
+                  <label for="telefone">Telefone:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telefone"
+                    placeholder="Fixo"
+                    formControlName="telefone"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="telefone2">Telefone 2:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telefone2"
+                    placeholder="Fixo 02"
+                    formControlName="telefone2"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="whatsapp">Whatsapp:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="whatsapp"
+                    placeholder="Whatsapp"
+                    formControlName="whatsapp"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="celular">Celular:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="celular"
+                    placeholder="Celular"
+                    formControlName="celular"/>
+                </div>
+              </div>
+              <div class="form-row col-md-12">
+                <div class="form-group col-md-3">
+                  <label for="email">Email:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Email"
+                    formControlName="email"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="webSite">Web Site:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="webSite"
+                    placeholder="WebSite"
+                    formControlName="webSite"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="redeSocial">Rede Social:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="redesocial"
+                    placeholder="Facebook"
+                    formControlName="redeSocial"/>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="redeSocial2">Rede Social 2:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="redeSocial2"
+                    placeholder="Instagran"
+                    formControlName="redeSocial2"/>
+                </div>
+              </div>
+              <div class="form-row col-md-12">
+                <div class="form-group col-md-3">
+                  <label for="redeSocial3">Rede Social 3:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="redeSocial3"
+                    placeholder="Linkedin"
+                    formControlName="redeSocial3"/>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-finali" role="tabpanel" aria-labelledby="nav-finali-tab">
+              <div class="form-row col-md-12 mt-3">
+                <div class="form-group col-md-4">
+                  <label for="ramoDeAtividade">Ramo de Atividade:</label>
+                  <select id="ramoDeAtividade" class="form-control" formControlName="ramoDeAtividade">
+                    <option value="">Selecione</option>
+                    <option>Comércio</option>
+                    <option>Serviços</option>
+                    <option>Alimentação</option>
+                    <option>Vestuário</option>
+                    <option>Calçados</option>
+                    <option>Informática</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="dataCadastro">Data do cadastro:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="dataCadastro"
+                    formControlName="dataCadastro"/>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="statusEmpresa">Status Empresa:</label>
+                  <select id="statusEmpresa" class="form-control" formControlName="statusEmpresa">
+                    <option value="">Selecione</option>
+                    <option>Ativo</option>
+                    <option>Inativo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row col-md-12">
+                <div class="form-group  col-md-3" *ngIf="mostrarIncluirFoto">
+                  <label for="foto">Incluir Foto:</label>
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    id="foto"
+                    (change)="uploadFoto($event)"
+                  />
+                </div>
+                <div class="form-group col-md-3 card mt-4" *ngIf="mostrarFoto">
+                  <div class="d-flex justify-content-center mt-3">
+                    <img  style="width: 60%;"  class="card-img-top" [src]="render"/>
+                  </div>
+                  <div class="card-body">
+                    <button type="button" (click)="adicionarNovaFoto()" class="btn btn-primary col-md-12"><i class="fas fa-user-plus"></i>&nbsp;Adicionar nova foto</button>
+                  </div>
+                </div>
+                <div class="form-group col-md-9">
+                  <label for="descricao">Breve descrição sobre a Empresa:</label>
+                  <textarea
+                    class="form-control"
+                    id="descricao"
+                    formControlName="descricao"
+                    rows="5"
+                    cols="500">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="float-right mt-3">
+      <button  type="submit" data-toggle="modal" data-target="#ModalSalvar" class="btn btn-success">
+        <i class="fas fa-save"></i> &nbsp;Salvar
+      </button>
+      <button routerLink="/empresa" class="btn btn-info ">
+        <i class="fas fa-backward"></i>&nbsp;Voltar
+      </button>
+    </div>
+      <!-- Modal -->
+      <div class="modal fade" id="ModalSalvar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="TituloModalCentralizado">
+                Vamos lá!
+              </h5>
+            </div>
+            <div class="modal-body" style="font-weight: bold;">
+              Deseja confirmar a gravação da empresa {{ empresaForm.value.nomeFantasia }} ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                <i class="fas fa-window-close"></i>&nbsp;Cancelar
+              </button>
+              <button class="btn btn-success"  (click)="onSubmit()" data-dismiss="modal">
+                <i class="fas fa-save"></i> &nbsp;Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Fim da modal-->
+  </div>
+</div>
+
+

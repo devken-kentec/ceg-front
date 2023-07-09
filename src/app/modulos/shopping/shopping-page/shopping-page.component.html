@@ -1,0 +1,81 @@
+<div class="col-12 col-md-12" style="margin-top: 100px;  margin-bottom: 50px;">
+  <div class="container">
+    <nav>
+      <ol class="breadcrumb bg-white migalha-shopp-page">
+        <li class="breadcrumb-item"><a routerLink="/casa">Início</a></li>
+        <li class="breadcrumb-item"><a routerLink="/home">Shopping</a></li>
+        <li class="breadcrumb-item active">Empresa</li>
+      </ol>
+    </nav>
+    <div class="col-12 col-md-12" style="padding-top: 40px; padding-bottom: 10px; border: 2px solid #F24F00; border-radius: 10px;">
+      <div class="col-12 col-md-12 d-flex justify-content-center">
+        <h1 class="h2 mb-5 title-shopp-page" style="text-transform: uppercase; color: #FF8C00; text-shadow: 1px 1px 1px #000;">Shopping do Empreendedor de Goiás</h1>
+      </div>
+      <div class="row col-12 col-md-12">
+        <div class="col-12 col-md-6">
+          <div class="logo d-flex justify-content-center">
+            <img class="img-fluid img-shopp" [src]="logo" width="300px" alt="Shopping do Empreendedor">
+          </div>
+          <div class="col-12 col-md-12">
+            <div class="text-center mt-3" style="text-transform: uppercase; font-weight: bold;">{{ nomeFantasia }}</div>
+          </div>
+          <div class="text-center">
+             CNPJ: {{ cnpj }}
+          </div>
+          <div class="mt-3" style="font-size: 12pt; text-align: justify;">
+            {{ descricao }}
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div id="fone" class="col-12 col-md-12">
+            <div class="col-12 col-md-12" style="font-weight: bold;">
+              Fones:
+            </div>
+            <div class="col-12 col-md-12">
+              <div class="col-12 tel">
+                <a [href]="'tel:+'+'telefone'" *ngIf="telefone"><i class="fas fa-phone-alt"></i>&nbsp;{{ telefone }}</a>
+              </div>
+              <div class="col-12 tel">
+                <a [href]="'tel:+'+'telefone2'" *ngIf="telefone2"><i class="fas fa-phone-alt"></i>&nbsp;{{ telefone2 }}</a>
+              </div>
+              <div class="col-12 tel">
+                <a [href]="'tel:+'+'celular'" *ngIf="celular"><i class="fas fa-mobile-alt"></i>&nbsp;{{ celular }}</a>
+              </div>
+              <div  class="col-12 tel">
+                <a [href]="linkWhatsApp" *ngIf="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i>&nbsp;{{ whatsapp }}</a>
+              </div>
+            </div>
+          </div>
+          <div id="site" class="col-12 col-md-12">
+            <div class="mt-2 col-12 col-md-12 title-se">
+              WebSite é Email:
+            </div>
+            <div class="col-12 col-md-12" style="margin-bottom: 10px;">
+              <div class="se">
+                <a [href]="webSite" *ngIf="webSite" target="_blank" >{{ webSite }}</a><br>
+              </div>
+              <div class="se">
+                <a [href]="email" *ngIf="email" target="_blank">{{ email }}</a>
+              </div>
+            </div>
+          </div>
+          <div id="redes" class="col-12 col-md-12">
+            <div class="col-12 col-md-12 mb-2 title-rs" style="font-weight: bold;">
+              Redes Sociais:
+            </div>
+            <div class="col-12 col-md-12">
+              <a [href]="redeSocial" *ngIf="redeSocial" target="_blank"><i class="fab fa-facebook" style="font-size: 30pt; color:#FF8C00; margin-left: 10px;"></i></a>
+              <a [href]="redeSocial2" *ngIf="redeSocial2" target="_blank"><i class="fab fa-instagram" style="font-size: 30pt; color:#FF8C00; margin-left: 10px;"></i></a>
+              <a [href]="redeSocial3" *ngIf="redeSocial3" target="_blank"><i class="fab fa-linkedin" style="font-size: 30pt; color:#FF8C00; margin-left: 10px;"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12" style="font-weight: bold;">
+        <div class="text-center" style="margin-top: 50px;">{{ endereco + " " + complemento + " n.º: " + numero + " " + bairro + " " + municipio + "-" + estado + " " + cep }}</div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+
