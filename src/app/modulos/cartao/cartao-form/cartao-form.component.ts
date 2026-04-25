@@ -26,7 +26,6 @@ export class CartaoFormComponent implements OnInit {
       validade: [''],
       statusCartao: [''],
       usuarioId: ['']
-
   });
 
   constructor(private fb: FormBuilder,
